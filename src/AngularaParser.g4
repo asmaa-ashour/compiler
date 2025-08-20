@@ -245,25 +245,24 @@ postfixOperator
     | LPAREN argumentList? RPAREN
     | LBRACK expression RBRACK
     ;
-
 primaryExpression
-    : THIS
-    | IDENTIFIER
-    | HTML
-    | HEAD
-    | BODY
-    | META
-    | TITLE
-    | BASE
-    | LINK
-    | literal
-    | arrayLiteral
-    | objectLiteral
-    | LPAREN expression RPAREN
-    | arrowFunction
-    | NEW IDENTIFIER genericArguments? LPAREN argumentList? RPAREN
-    | TEMPLATE_STR
-    | IMPORT DOT META DOT IDENTIFIER
+    : THIS                                                          #ThisExpression
+    | IDENTIFIER                                                    #IdentifierExpression
+    | HTML                                                          #HtmlExpression
+    | HEAD                                                          #HeadExpression
+    | BODY                                                          #BodyExpression
+    | META                                                          #MetaExpression
+    | TITLE                                                         #TitleExpression
+    | BASE                                                          #BaseExpression
+    | LINK                                                          #LinkExpression
+    | literal                                                       #LiteralExpression
+    | arrayLiteral                                                  #ArrayLiteralExpression
+    | objectLiteral                                                 #ObjectLiteralExpression
+    | LPAREN expression RPAREN                                      #ParenExpression
+    | arrowFunction                                                 #ArrowFunctionExpression
+    | NEW IDENTIFIER genericArguments? LPAREN argumentList? RPAREN  #NewExpression
+    | TEMPLATE_STR                                                  #TemplateStringExpression
+    | IMPORT DOT META DOT IDENTIFIER                                #ImportMetaExpression
     ;
 
 arrowFunction

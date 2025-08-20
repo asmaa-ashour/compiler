@@ -4388,60 +4388,346 @@ public class AngularaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrimaryExpressionContext extends ParserRuleContext {
-		public TerminalNode THIS() { return getToken(AngularaParser.THIS, 0); }
-		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
-		public TerminalNode HTML() { return getToken(AngularaParser.HTML, 0); }
-		public TerminalNode HEAD() { return getToken(AngularaParser.HEAD, 0); }
-		public TerminalNode BODY() { return getToken(AngularaParser.BODY, 0); }
-		public TerminalNode META() { return getToken(AngularaParser.META, 0); }
-		public TerminalNode TITLE() { return getToken(AngularaParser.TITLE, 0); }
+		public PrimaryExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_primaryExpression; }
+	 
+		public PrimaryExpressionContext() { }
+		public void copyFrom(PrimaryExpressionContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class TemplateStringExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode TEMPLATE_STR() { return getToken(AngularaParser.TEMPLATE_STR, 0); }
+		public TemplateStringExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterTemplateStringExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitTemplateStringExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitTemplateStringExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BaseExpressionContext extends PrimaryExpressionContext {
 		public TerminalNode BASE() { return getToken(AngularaParser.BASE, 0); }
-		public TerminalNode LINK() { return getToken(AngularaParser.LINK, 0); }
-		public LiteralContext literal() {
-			return getRuleContext(LiteralContext.class,0);
+		public BaseExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterBaseExpression(this);
 		}
-		public ArrayLiteralContext arrayLiteral() {
-			return getRuleContext(ArrayLiteralContext.class,0);
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitBaseExpression(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitBaseExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ObjectLiteralExpressionContext extends PrimaryExpressionContext {
 		public ObjectLiteralContext objectLiteral() {
 			return getRuleContext(ObjectLiteralContext.class,0);
 		}
-		public TerminalNode LPAREN() { return getToken(AngularaParser.LPAREN, 0); }
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
+		public ObjectLiteralExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterObjectLiteralExpression(this);
 		}
-		public TerminalNode RPAREN() { return getToken(AngularaParser.RPAREN, 0); }
-		public ArrowFunctionContext arrowFunction() {
-			return getRuleContext(ArrowFunctionContext.class,0);
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitObjectLiteralExpression(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitObjectLiteralExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class MetaExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode META() { return getToken(AngularaParser.META, 0); }
+		public MetaExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterMetaExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitMetaExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitMetaExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NewExpressionContext extends PrimaryExpressionContext {
 		public TerminalNode NEW() { return getToken(AngularaParser.NEW, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public TerminalNode LPAREN() { return getToken(AngularaParser.LPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(AngularaParser.RPAREN, 0); }
 		public GenericArgumentsContext genericArguments() {
 			return getRuleContext(GenericArgumentsContext.class,0);
 		}
 		public ArgumentListContext argumentList() {
 			return getRuleContext(ArgumentListContext.class,0);
 		}
-		public TerminalNode TEMPLATE_STR() { return getToken(AngularaParser.TEMPLATE_STR, 0); }
+		public NewExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterNewExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitNewExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitNewExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class LiteralExpressionContext extends PrimaryExpressionContext {
+		public LiteralContext literal() {
+			return getRuleContext(LiteralContext.class,0);
+		}
+		public LiteralExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterLiteralExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitLiteralExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitLiteralExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class HtmlExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode HTML() { return getToken(AngularaParser.HTML, 0); }
+		public HtmlExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterHtmlExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitHtmlExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitHtmlExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ArrayLiteralExpressionContext extends PrimaryExpressionContext {
+		public ArrayLiteralContext arrayLiteral() {
+			return getRuleContext(ArrayLiteralContext.class,0);
+		}
+		public ArrayLiteralExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterArrayLiteralExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitArrayLiteralExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitArrayLiteralExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ImportMetaExpressionContext extends PrimaryExpressionContext {
 		public TerminalNode IMPORT() { return getToken(AngularaParser.IMPORT, 0); }
 		public List<TerminalNode> DOT() { return getTokens(AngularaParser.DOT); }
 		public TerminalNode DOT(int i) {
 			return getToken(AngularaParser.DOT, i);
 		}
-		public PrimaryExpressionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_primaryExpression; }
+		public TerminalNode META() { return getToken(AngularaParser.META, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public ImportMetaExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterPrimaryExpression(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterImportMetaExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitPrimaryExpression(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitImportMetaExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitPrimaryExpression(this);
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitImportMetaExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class IdentifierExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public IdentifierExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterIdentifierExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitIdentifierExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitIdentifierExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ThisExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode THIS() { return getToken(AngularaParser.THIS, 0); }
+		public ThisExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterThisExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitThisExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitThisExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BodyExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode BODY() { return getToken(AngularaParser.BODY, 0); }
+		public BodyExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterBodyExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitBodyExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitBodyExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ParenExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode LPAREN() { return getToken(AngularaParser.LPAREN, 0); }
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(AngularaParser.RPAREN, 0); }
+		public ParenExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterParenExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitParenExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitParenExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class LinkExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode LINK() { return getToken(AngularaParser.LINK, 0); }
+		public LinkExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterLinkExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitLinkExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitLinkExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ArrowFunctionExpressionContext extends PrimaryExpressionContext {
+		public ArrowFunctionContext arrowFunction() {
+			return getRuleContext(ArrowFunctionContext.class,0);
+		}
+		public ArrowFunctionExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterArrowFunctionExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitArrowFunctionExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitArrowFunctionExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class HeadExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode HEAD() { return getToken(AngularaParser.HEAD, 0); }
+		public HeadExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterHeadExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitHeadExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitHeadExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class TitleExpressionContext extends PrimaryExpressionContext {
+		public TerminalNode TITLE() { return getToken(AngularaParser.TITLE, 0); }
+		public TitleExpressionContext(PrimaryExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterTitleExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitTitleExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitTitleExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4455,6 +4741,7 @@ public class AngularaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,66,_ctx) ) {
 			case 1:
+				_localctx = new ThisExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(575);
@@ -4462,6 +4749,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new IdentifierExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(576);
@@ -4469,6 +4757,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new HtmlExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(577);
@@ -4476,6 +4765,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new HeadExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(578);
@@ -4483,6 +4773,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 5:
+				_localctx = new BodyExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(579);
@@ -4490,6 +4781,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 6:
+				_localctx = new MetaExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(580);
@@ -4497,6 +4789,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 7:
+				_localctx = new TitleExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(581);
@@ -4504,6 +4797,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 8:
+				_localctx = new BaseExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(582);
@@ -4511,6 +4805,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 9:
+				_localctx = new LinkExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 9);
 				{
 				setState(583);
@@ -4518,6 +4813,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 10:
+				_localctx = new LiteralExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 10);
 				{
 				setState(584);
@@ -4525,6 +4821,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 11:
+				_localctx = new ArrayLiteralExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 11);
 				{
 				setState(585);
@@ -4532,6 +4829,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 12:
+				_localctx = new ObjectLiteralExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 12);
 				{
 				setState(586);
@@ -4539,6 +4837,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 13:
+				_localctx = new ParenExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 13);
 				{
 				setState(587);
@@ -4550,6 +4849,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 14:
+				_localctx = new ArrowFunctionExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 14);
 				{
 				setState(591);
@@ -4557,6 +4857,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 15:
+				_localctx = new NewExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 15);
 				{
 				setState(592);
@@ -4590,6 +4891,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 16:
+				_localctx = new TemplateStringExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 16);
 				{
 				setState(602);
@@ -4597,6 +4899,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 17:
+				_localctx = new ImportMetaExpressionContext(_localctx);
 				enterOuterAlt(_localctx, 17);
 				{
 				setState(603);

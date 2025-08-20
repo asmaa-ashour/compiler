@@ -12,7 +12,7 @@ public class ConstructorDeclaration extends Node{
 
     private String LPAREN;
     private  String RPAREN;
-    private ParamList paramList;
+    private ParameterList parameterList;
     private  BlockStmt block;
 
     public String getCONSTRUCTOR() {
@@ -39,12 +39,12 @@ public class ConstructorDeclaration extends Node{
         this.RPAREN = RPAREN;
     }
 
-    public ParamList getParamList() {
-        return paramList;
+    public ParameterList getParameterList() {
+        return parameterList;
     }
 
-    public void setParamList(ParamList paramList) {
-        this.paramList = paramList;
+    public void setParameterList(ParameterList parameterList) {
+        this.parameterList = parameterList;
     }
 
     public BlockStmt getBlock() {

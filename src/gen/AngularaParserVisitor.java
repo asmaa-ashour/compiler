@@ -424,11 +424,124 @@ public interface AngularaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPostfixOperator(AngularaParser.PostfixOperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AngularaParser#primaryExpression}.
+	 * Visit a parse tree produced by the {@code ThisExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryExpression(AngularaParser.PrimaryExpressionContext ctx);
+	T visitThisExpression(AngularaParser.ThisExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code IdentifierExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifierExpression(AngularaParser.IdentifierExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code HtmlExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHtmlExpression(AngularaParser.HtmlExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code HeadExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHeadExpression(AngularaParser.HeadExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BodyExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBodyExpression(AngularaParser.BodyExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMetaExpression(AngularaParser.MetaExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code TitleExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTitleExpression(AngularaParser.TitleExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code BaseExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBaseExpression(AngularaParser.BaseExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LinkExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLinkExpression(AngularaParser.LinkExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code LiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLiteralExpression(AngularaParser.LiteralExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArrayLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayLiteralExpression(AngularaParser.ArrayLiteralExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ObjectLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObjectLiteralExpression(AngularaParser.ObjectLiteralExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ParenExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParenExpression(AngularaParser.ParenExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ArrowFunctionExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrowFunctionExpression(AngularaParser.ArrowFunctionExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NewExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNewExpression(AngularaParser.NewExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code TemplateStringExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTemplateStringExpression(AngularaParser.TemplateStringExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ImportMetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImportMetaExpression(AngularaParser.ImportMetaExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AngularaParser#arrowFunction}.
 	 * @param ctx the parse tree

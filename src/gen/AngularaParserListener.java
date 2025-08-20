@@ -702,15 +702,209 @@ public interface AngularaParserListener extends ParseTreeListener {
 	 */
 	void exitPostfixOperator(AngularaParser.PostfixOperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AngularaParser#primaryExpression}.
+	 * Enter a parse tree produced by the {@code ThisExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryExpression(AngularaParser.PrimaryExpressionContext ctx);
+	void enterThisExpression(AngularaParser.ThisExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AngularaParser#primaryExpression}.
+	 * Exit a parse tree produced by the {@code ThisExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryExpression(AngularaParser.PrimaryExpressionContext ctx);
+	void exitThisExpression(AngularaParser.ThisExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code IdentifierExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifierExpression(AngularaParser.IdentifierExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code IdentifierExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifierExpression(AngularaParser.IdentifierExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code HtmlExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlExpression(AngularaParser.HtmlExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code HtmlExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlExpression(AngularaParser.HtmlExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code HeadExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterHeadExpression(AngularaParser.HeadExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code HeadExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitHeadExpression(AngularaParser.HeadExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BodyExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBodyExpression(AngularaParser.BodyExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BodyExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBodyExpression(AngularaParser.BodyExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMetaExpression(AngularaParser.MetaExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMetaExpression(AngularaParser.MetaExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TitleExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTitleExpression(AngularaParser.TitleExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TitleExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTitleExpression(AngularaParser.TitleExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BaseExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBaseExpression(AngularaParser.BaseExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BaseExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBaseExpression(AngularaParser.BaseExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LinkExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLinkExpression(AngularaParser.LinkExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LinkExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLinkExpression(AngularaParser.LinkExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteralExpression(AngularaParser.LiteralExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteralExpression(AngularaParser.LiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArrayLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayLiteralExpression(AngularaParser.ArrayLiteralExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArrayLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayLiteralExpression(AngularaParser.ArrayLiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ObjectLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterObjectLiteralExpression(AngularaParser.ObjectLiteralExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ObjectLiteralExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitObjectLiteralExpression(AngularaParser.ObjectLiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ParenExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenExpression(AngularaParser.ParenExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParenExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenExpression(AngularaParser.ParenExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArrowFunctionExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrowFunctionExpression(AngularaParser.ArrowFunctionExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArrowFunctionExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrowFunctionExpression(AngularaParser.ArrowFunctionExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code NewExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterNewExpression(AngularaParser.NewExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code NewExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitNewExpression(AngularaParser.NewExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TemplateStringExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTemplateStringExpression(AngularaParser.TemplateStringExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TemplateStringExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTemplateStringExpression(AngularaParser.TemplateStringExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ImportMetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportMetaExpression(AngularaParser.ImportMetaExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ImportMetaExpression}
+	 * labeled alternative in {@link AngularaParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportMetaExpression(AngularaParser.ImportMetaExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AngularaParser#arrowFunction}.
 	 * @param ctx the parse tree
