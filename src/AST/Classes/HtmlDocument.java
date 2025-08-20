@@ -12,6 +12,22 @@ public class HtmlDocument extends Node { // Node أو ASTNode مجرد superclas
         this.elements = elements;
     }
 
+    public String getDoctype() {
+        return doctype;
+    }
+
+    public void setDoctype(String doctype) {
+        this.doctype = doctype;
+    }
+
+    public List<HtmlElement> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<HtmlElement> elements) {
+        this.elements = elements;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

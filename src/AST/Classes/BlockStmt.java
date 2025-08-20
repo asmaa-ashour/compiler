@@ -14,7 +14,11 @@ public class BlockStmt {
         this.statements = statements;
     }
 
-    //public List<Statement> getStatements() { return statements; }
+    public List<Statement> getStatements() { return statements; }
+
+    public void setStatements(List<Statement> statements) {
+        this.statements = statements;
+    }
 
     @Override
     public String toString() {

@@ -15,6 +15,22 @@ public class Decorator extends Node{
         this.value = value;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ObjectLiteral getValue() {
+        return value;
+    }
+
+    public void setValue(ObjectLiteral value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return "@" + name + "(" + value.toString() + ")";

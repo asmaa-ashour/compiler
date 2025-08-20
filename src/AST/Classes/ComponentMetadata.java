@@ -9,6 +9,14 @@ public class ComponentMetadata {
         this.properties = properties;
     }
 
+    public List<ComponentMetadataProperty> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<ComponentMetadataProperty> properties) {
+        this.properties = properties;
+    }
+
     @Override
     public String toString() {
         if (properties == null || properties.isEmpty()) return "{}";

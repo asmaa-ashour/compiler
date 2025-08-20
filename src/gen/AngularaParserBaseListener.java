@@ -233,25 +233,73 @@ public class AngularaParserBaseListener implements AngularaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComponentMetadataProperty(AngularaParser.ComponentMetadataPropertyContext ctx) { }
+	@Override public void enterSelector(AngularaParser.SelectorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComponentMetadataProperty(AngularaParser.ComponentMetadataPropertyContext ctx) { }
+	@Override public void exitSelector(AngularaParser.SelectorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDecorator(AngularaParser.DecoratorContext ctx) { }
+	@Override public void enterStandalone(AngularaParser.StandaloneContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDecorator(AngularaParser.DecoratorContext ctx) { }
+	@Override public void exitStandalone(AngularaParser.StandaloneContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterImports(AngularaParser.ImportsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImports(AngularaParser.ImportsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTemplate(AngularaParser.TemplateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTemplate(AngularaParser.TemplateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStyleUrls(AngularaParser.StyleUrlsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStyleUrls(AngularaParser.StyleUrlsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCustomProperty(AngularaParser.CustomPropertyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCustomProperty(AngularaParser.CustomPropertyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -264,6 +312,18 @@ public class AngularaParserBaseListener implements AngularaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitClassDeclaration(AngularaParser.ClassDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDecorator(AngularaParser.DecoratorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDecorator(AngularaParser.DecoratorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -929,13 +989,49 @@ public class AngularaParserBaseListener implements AngularaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHtmlContent(AngularaParser.HtmlContentContext ctx) { }
+	@Override public void enterHtmlElementContent(AngularaParser.HtmlElementContentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHtmlContent(AngularaParser.HtmlContentContext ctx) { }
+	@Override public void exitHtmlElementContent(AngularaParser.HtmlElementContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpressionContent(AngularaParser.ExpressionContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpressionContent(AngularaParser.ExpressionContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStringContent(AngularaParser.StringContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringContent(AngularaParser.StringContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIdentifierContent(AngularaParser.IdentifierContentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIdentifierContent(AngularaParser.IdentifierContentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

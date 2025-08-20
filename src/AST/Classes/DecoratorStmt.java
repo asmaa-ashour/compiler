@@ -14,6 +14,22 @@ class DecoratorStmt extends Statement {
         this.exportStatement = exportStatement;
     }
 
+    public Decorator getDecorator() {
+        return decorator;
+    }
+
+    public void setDecorator(Decorator decorator) {
+        this.decorator = decorator;
+    }
+
+    public ExportStmt getExportStatement() {
+        return exportStatement;
+    }
+
+    public void setExportStatement(ExportStmt exportStatement) {
+        this.exportStatement = exportStatement;
+    }
+
     @Override
     public String toString() {
         return "DecoratorStmt(" + decorator + ", " + exportStatement.toString() + ")";

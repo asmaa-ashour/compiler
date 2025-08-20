@@ -210,25 +210,77 @@ public interface AngularaParserListener extends ParseTreeListener {
 	 */
 	void exitComponentMetadataPropertyList(AngularaParser.ComponentMetadataPropertyListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AngularaParser#componentMetadataProperty}.
+	 * Enter a parse tree produced by the {@code selector}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterComponentMetadataProperty(AngularaParser.ComponentMetadataPropertyContext ctx);
+	void enterSelector(AngularaParser.SelectorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AngularaParser#componentMetadataProperty}.
+	 * Exit a parse tree produced by the {@code selector}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitComponentMetadataProperty(AngularaParser.ComponentMetadataPropertyContext ctx);
+	void exitSelector(AngularaParser.SelectorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AngularaParser#decorator}.
+	 * Enter a parse tree produced by the {@code standalone}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 */
-	void enterDecorator(AngularaParser.DecoratorContext ctx);
+	void enterStandalone(AngularaParser.StandaloneContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AngularaParser#decorator}.
+	 * Exit a parse tree produced by the {@code standalone}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 */
-	void exitDecorator(AngularaParser.DecoratorContext ctx);
+	void exitStandalone(AngularaParser.StandaloneContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code imports}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterImports(AngularaParser.ImportsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code imports}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitImports(AngularaParser.ImportsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code template}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterTemplate(AngularaParser.TemplateContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code template}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitTemplate(AngularaParser.TemplateContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code styleUrls}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterStyleUrls(AngularaParser.StyleUrlsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code styleUrls}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitStyleUrls(AngularaParser.StyleUrlsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code customProperty}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void enterCustomProperty(AngularaParser.CustomPropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code customProperty}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 */
+	void exitCustomProperty(AngularaParser.CustomPropertyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AngularaParser#classDeclaration}.
 	 * @param ctx the parse tree
@@ -239,6 +291,16 @@ public interface AngularaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitClassDeclaration(AngularaParser.ClassDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AngularaParser#decorator}.
+	 * @param ctx the parse tree
+	 */
+	void enterDecorator(AngularaParser.DecoratorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AngularaParser#decorator}.
+	 * @param ctx the parse tree
+	 */
+	void exitDecorator(AngularaParser.DecoratorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AngularaParser#exportStatement}.
 	 * @param ctx the parse tree
@@ -790,15 +852,53 @@ public interface AngularaParserListener extends ParseTreeListener {
 	 */
 	void exitHtmlTagName(AngularaParser.HtmlTagNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AngularaParser#htmlContent}.
+	 * Enter a parse tree produced by the {@code htmlElementContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
 	 * @param ctx the parse tree
 	 */
-	void enterHtmlContent(AngularaParser.HtmlContentContext ctx);
+	void enterHtmlElementContent(AngularaParser.HtmlElementContentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AngularaParser#htmlContent}.
+	 * Exit a parse tree produced by the {@code htmlElementContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
 	 * @param ctx the parse tree
 	 */
-	void exitHtmlContent(AngularaParser.HtmlContentContext ctx);
+	void exitHtmlElementContent(AngularaParser.HtmlElementContentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code expressionContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionContent(AngularaParser.ExpressionContentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expressionContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionContent(AngularaParser.ExpressionContentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code stringContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void enterStringContent(AngularaParser.StringContentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code stringContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void exitStringContent(AngularaParser.StringContentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code identifierContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifierContent(AngularaParser.IdentifierContentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code identifierContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifierContent(AngularaParser.IdentifierContentContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AngularaParser#attribute}.
 	 * @param ctx the parse tree

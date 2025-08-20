@@ -20,6 +20,38 @@ public class ClassDeclaration {
         this.classBody = classBody;
     }
 
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getExtendsIdentifier() {
+        return extendsIdentifier;
+    }
+
+    public void setExtendsIdentifier(String extendsIdentifier) {
+        this.extendsIdentifier = extendsIdentifier;
+    }
+
+    public List<String> getImplementsList() {
+        return implementsList;
+    }
+
+    public void setImplementsList(List<String> implementsList) {
+        this.implementsList = implementsList;
+    }
+
+    public ClassBody getClassBody() {
+        return classBody;
+    }
+
+    public void setClassBody(ClassBody classBody) {
+        this.classBody = classBody;
+    }
+
     @Override
     public String toString() {
         return "ClassDeclaration(identifier=" + identifier

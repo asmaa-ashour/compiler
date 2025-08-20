@@ -13,6 +13,22 @@ public class ImportStmt extends Statement{
         this.fromModule = fromModule;
     }
 
+    public ImportClause getImportClause() {
+        return importClause;
+    }
+
+    public void setImportClause(ImportClause importClause) {
+        this.importClause = importClause;
+    }
+
+    public String getFromModule() {
+        return fromModule;
+    }
+
+    public void setFromModule(String fromModule) {
+        this.fromModule = fromModule;
+    }
+
     @Override
     public String toString() {
         return "ImportStmt(" + importClause + " from " + fromModule + ")";

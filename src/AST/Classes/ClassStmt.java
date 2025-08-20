@@ -7,6 +7,14 @@ class ClassStmt extends Statement {
         this.classDeclaration = classDeclaration;
     }
 
+    public ClassDeclaration getClassDeclaration() {
+        return classDeclaration;
+    }
+
+    public void setClassDeclaration(ClassDeclaration classDeclaration) {
+        this.classDeclaration = classDeclaration;
+    }
+
     @Override
     public String toString() {
         return "ClassStmt(" + classDeclaration.toString() + ")";

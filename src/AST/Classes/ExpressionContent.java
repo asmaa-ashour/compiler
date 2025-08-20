@@ -1,14 +1,9 @@
 package AST.Classes;
-/*
 
-expressionStatement
-    : expression SEMI_Q?
-    ;
- */
-public class ExprStmt extends Statement {
+public class ExpressionContent extends HtmlContent {
     private Expression expression;
 
-    public ExprStmt(Expression expression) {
+    public ExpressionContent(Expression expression) {
         this.expression = expression;
     }
 
@@ -22,7 +17,6 @@ public class ExprStmt extends Statement {
 
     @Override
     public String toString() {
-        return "ExprStmt(" + expression + ")";
+        return "ExpressionContent(" + expression + ")";
     }
 }
-

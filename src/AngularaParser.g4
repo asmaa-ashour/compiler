@@ -338,11 +338,12 @@ htmlTagName
     | LINK
     ;
 htmlContent
-    : htmlElement
-    | expression
-    | STRING
-    | IDENTIFIER
+    : htmlElement         #htmlElementContent
+    | expression          #expressionContent
+    | STRING              #stringContent
+    | IDENTIFIER          #identifierContent
     ;
+
  attribute
                 : IDENTIFIER
                 | IDENTIFIER ASSIGN ( IDENTIFIER| NUMBER | BOOLEAN_LITERAL |STRING )

@@ -26,6 +26,22 @@ importClause
         this.importItems = importItems;
     }
 
+    public String getSingleIdentifier() {
+        return singleIdentifier;
+    }
+
+    public void setSingleIdentifier(String singleIdentifier) {
+        this.singleIdentifier = singleIdentifier;
+    }
+
+    public List<ImportItems> getImportItems() {
+        return importItems;
+    }
+
+    public void setImportItems(List<ImportItems> importItems) {
+        this.importItems = importItems;
+    }
+
     @Override
     public String toString() {
         if (singleIdentifier != null) {

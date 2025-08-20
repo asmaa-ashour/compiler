@@ -13,6 +13,22 @@ class ComponentStmt extends Statement {
         this.classDeclaration = classDeclaration;
     }
 
+    public ComponentMetadata getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(ComponentMetadata metadata) {
+        this.metadata = metadata;
+    }
+
+    public ClassDeclaration getClassDeclaration() {
+        return classDeclaration;
+    }
+
+    public void setClassDeclaration(ClassDeclaration classDeclaration) {
+        this.classDeclaration = classDeclaration;
+    }
+
     @Override
     public String toString() {
         String result = "ComponentStmt(\n" + metadata.toString() + "\n)";

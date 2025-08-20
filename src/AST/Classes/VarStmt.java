@@ -20,6 +20,22 @@ public class VarStmt extends Statement {
         this.initializer = initializer;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Expression getInitializer() {
+        return initializer;
+    }
+
+    public void setInitializer(Expression initializer) {
+        this.initializer = initializer;
+    }
+
     @Override
     public String toString() {
         return "VarStmt(" + name + (initializer != null ? " = " + initializer : "") + ")";

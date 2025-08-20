@@ -33,7 +33,7 @@ public class AngularaParser extends Parser {
 		RULE_program = 0, RULE_statement = 1, RULE_importStatement = 2, RULE_importClause = 3, 
 		RULE_importItems = 4, RULE_componentDefinition = 5, RULE_componentMetadata = 6, 
 		RULE_componentMetadataPropertyList = 7, RULE_componentMetadataProperty = 8, 
-		RULE_decorator = 9, RULE_classDeclaration = 10, RULE_exportStatement = 11, 
+		RULE_classDeclaration = 9, RULE_decorator = 10, RULE_exportStatement = 11, 
 		RULE_exportDefault = 12, RULE_classBody = 13, RULE_classElement = 14, 
 		RULE_constructorDeclaration = 15, RULE_methodDeclaration = 16, RULE_paramList = 17, 
 		RULE_param = 18, RULE_accessModifier = 19, RULE_fieldDeclaration = 20, 
@@ -57,7 +57,7 @@ public class AngularaParser extends Parser {
 		return new String[] {
 			"program", "statement", "importStatement", "importClause", "importItems", 
 			"componentDefinition", "componentMetadata", "componentMetadataPropertyList", 
-			"componentMetadataProperty", "decorator", "classDeclaration", "exportStatement", 
+			"componentMetadataProperty", "classDeclaration", "decorator", "exportStatement", 
 			"exportDefault", "classBody", "classElement", "constructorDeclaration", 
 			"methodDeclaration", "paramList", "param", "accessModifier", "fieldDeclaration", 
 			"interfaceDeclaration", "interfaceBody", "interfaceProperty", "typeAnnotation", 
@@ -1008,37 +1008,139 @@ public class AngularaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ComponentMetadataPropertyContext extends ParserRuleContext {
-		public TerminalNode SELECTOR() { return getToken(AngularaParser.SELECTOR, 0); }
-		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
-		public TerminalNode STRING() { return getToken(AngularaParser.STRING, 0); }
-		public TerminalNode STANDALONE() { return getToken(AngularaParser.STANDALONE, 0); }
-		public TerminalNode BOOLEAN_LITERAL() { return getToken(AngularaParser.BOOLEAN_LITERAL, 0); }
-		public TerminalNode IMPORTS() { return getToken(AngularaParser.IMPORTS, 0); }
-		public ValueContext value() {
-			return getRuleContext(ValueContext.class,0);
-		}
-		public TerminalNode TEMPLATE() { return getToken(AngularaParser.TEMPLATE, 0); }
-		public TerminalNode TEMPLATE_STR() { return getToken(AngularaParser.TEMPLATE_STR, 0); }
-		public TerminalNode STYLE_URLS() { return getToken(AngularaParser.STYLE_URLS, 0); }
-		public ArrayLiteralContext arrayLiteral() {
-			return getRuleContext(ArrayLiteralContext.class,0);
-		}
-		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
 		public ComponentMetadataPropertyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_componentMetadataProperty; }
+	 
+		public ComponentMetadataPropertyContext() { }
+		public void copyFrom(ComponentMetadataPropertyContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class TemplateContext extends ComponentMetadataPropertyContext {
+		public TerminalNode TEMPLATE() { return getToken(AngularaParser.TEMPLATE, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public TerminalNode TEMPLATE_STR() { return getToken(AngularaParser.TEMPLATE_STR, 0); }
+		public TemplateContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterComponentMetadataProperty(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterTemplate(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitComponentMetadataProperty(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitTemplate(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitComponentMetadataProperty(this);
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitTemplate(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ImportsContext extends ComponentMetadataPropertyContext {
+		public TerminalNode IMPORTS() { return getToken(AngularaParser.IMPORTS, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public ImportsContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterImports(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitImports(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitImports(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class StandaloneContext extends ComponentMetadataPropertyContext {
+		public TerminalNode STANDALONE() { return getToken(AngularaParser.STANDALONE, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public TerminalNode BOOLEAN_LITERAL() { return getToken(AngularaParser.BOOLEAN_LITERAL, 0); }
+		public StandaloneContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterStandalone(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitStandalone(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitStandalone(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class SelectorContext extends ComponentMetadataPropertyContext {
+		public TerminalNode SELECTOR() { return getToken(AngularaParser.SELECTOR, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public TerminalNode STRING() { return getToken(AngularaParser.STRING, 0); }
+		public SelectorContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterSelector(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitSelector(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitSelector(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class StyleUrlsContext extends ComponentMetadataPropertyContext {
+		public TerminalNode STYLE_URLS() { return getToken(AngularaParser.STYLE_URLS, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public ArrayLiteralContext arrayLiteral() {
+			return getRuleContext(ArrayLiteralContext.class,0);
+		}
+		public StyleUrlsContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterStyleUrls(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitStyleUrls(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitStyleUrls(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class CustomPropertyContext extends ComponentMetadataPropertyContext {
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public TerminalNode COLON() { return getToken(AngularaParser.COLON, 0); }
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public CustomPropertyContext(ComponentMetadataPropertyContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterCustomProperty(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitCustomProperty(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitCustomProperty(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1051,6 +1153,7 @@ public class AngularaParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case SELECTOR:
+				_localctx = new SelectorContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(210);
@@ -1062,6 +1165,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case STANDALONE:
+				_localctx = new StandaloneContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(213);
@@ -1073,6 +1177,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case IMPORTS:
+				_localctx = new ImportsContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(216);
@@ -1084,6 +1189,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case TEMPLATE:
+				_localctx = new TemplateContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(219);
@@ -1095,6 +1201,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case STYLE_URLS:
+				_localctx = new StyleUrlsContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(222);
@@ -1106,6 +1213,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case IDENTIFIER:
+				_localctx = new CustomPropertyContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(225);
@@ -1118,63 +1226,6 @@ public class AngularaParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class DecoratorContext extends ParserRuleContext {
-		public TerminalNode AT() { return getToken(AngularaParser.AT, 0); }
-		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
-		public TerminalNode LPAREN() { return getToken(AngularaParser.LPAREN, 0); }
-		public ObjectLiteralContext objectLiteral() {
-			return getRuleContext(ObjectLiteralContext.class,0);
-		}
-		public TerminalNode RPAREN() { return getToken(AngularaParser.RPAREN, 0); }
-		public DecoratorContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_decorator; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterDecorator(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitDecorator(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitDecorator(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final DecoratorContext decorator() throws RecognitionException {
-		DecoratorContext _localctx = new DecoratorContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_decorator);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(230);
-			match(AT);
-			setState(231);
-			match(IDENTIFIER);
-			setState(232);
-			match(LPAREN);
-			setState(233);
-			objectLiteral();
-			setState(234);
-			match(RPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1227,61 +1278,118 @@ public class AngularaParser extends Parser {
 
 	public final ClassDeclarationContext classDeclaration() throws RecognitionException {
 		ClassDeclarationContext _localctx = new ClassDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_classDeclaration);
+		enterRule(_localctx, 18, RULE_classDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(236);
+			setState(230);
 			match(CLASS);
-			setState(237);
+			setState(231);
 			match(IDENTIFIER);
-			setState(240);
+			setState(234);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==EXTENDS) {
 				{
-				setState(238);
+				setState(232);
 				match(EXTENDS);
-				setState(239);
+				setState(233);
 				match(IDENTIFIER);
 				}
 			}
 
-			setState(251);
+			setState(245);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==IMPLEMENTS) {
 				{
-				setState(242);
+				setState(236);
 				match(IMPLEMENTS);
-				setState(243);
+				setState(237);
 				match(IDENTIFIER);
-				setState(248);
+				setState(242);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(244);
+					setState(238);
 					match(COMMA);
-					setState(245);
+					setState(239);
 					match(IDENTIFIER);
 					}
 					}
-					setState(250);
+					setState(244);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
 				}
 			}
 
-			setState(253);
+			setState(247);
 			match(LBRACE);
-			setState(254);
+			setState(248);
 			classBody();
-			setState(255);
+			setState(249);
 			match(RBRACE);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class DecoratorContext extends ParserRuleContext {
+		public TerminalNode AT() { return getToken(AngularaParser.AT, 0); }
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public TerminalNode LPAREN() { return getToken(AngularaParser.LPAREN, 0); }
+		public ObjectLiteralContext objectLiteral() {
+			return getRuleContext(ObjectLiteralContext.class,0);
+		}
+		public TerminalNode RPAREN() { return getToken(AngularaParser.RPAREN, 0); }
+		public DecoratorContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_decorator; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterDecorator(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitDecorator(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitDecorator(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final DecoratorContext decorator() throws RecognitionException {
+		DecoratorContext _localctx = new DecoratorContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_decorator);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(251);
+			match(AT);
+			setState(252);
+			match(IDENTIFIER);
+			setState(253);
+			match(LPAREN);
+			setState(254);
+			objectLiteral();
+			setState(255);
+			match(RPAREN);
 			}
 		}
 		catch (RecognitionException re) {
@@ -5659,29 +5767,89 @@ public class AngularaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class HtmlContentContext extends ParserRuleContext {
-		public HtmlElementContext htmlElement() {
-			return getRuleContext(HtmlElementContext.class,0);
-		}
-		public ExpressionContext expression() {
-			return getRuleContext(ExpressionContext.class,0);
-		}
-		public TerminalNode STRING() { return getToken(AngularaParser.STRING, 0); }
-		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
 		public HtmlContentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_htmlContent; }
+	 
+		public HtmlContentContext() { }
+		public void copyFrom(HtmlContentContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class IdentifierContentContext extends HtmlContentContext {
+		public TerminalNode IDENTIFIER() { return getToken(AngularaParser.IDENTIFIER, 0); }
+		public IdentifierContentContext(HtmlContentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterHtmlContent(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterIdentifierContent(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitHtmlContent(this);
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitIdentifierContent(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitHtmlContent(this);
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitIdentifierContent(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class StringContentContext extends HtmlContentContext {
+		public TerminalNode STRING() { return getToken(AngularaParser.STRING, 0); }
+		public StringContentContext(HtmlContentContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterStringContent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitStringContent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitStringContent(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class HtmlElementContentContext extends HtmlContentContext {
+		public HtmlElementContext htmlElement() {
+			return getRuleContext(HtmlElementContext.class,0);
+		}
+		public HtmlElementContentContext(HtmlContentContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterHtmlElementContent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitHtmlElementContent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitHtmlElementContent(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class ExpressionContentContext extends HtmlContentContext {
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
+		public ExpressionContentContext(HtmlContentContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).enterExpressionContent(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof AngularaParserListener ) ((AngularaParserListener)listener).exitExpressionContent(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof AngularaParserVisitor ) return ((AngularaParserVisitor<? extends T>)visitor).visitExpressionContent(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5694,6 +5862,7 @@ public class AngularaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,89,_ctx) ) {
 			case 1:
+				_localctx = new HtmlElementContentContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(759);
@@ -5701,6 +5870,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new ExpressionContentContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(760);
@@ -5708,6 +5878,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new StringContentContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(761);
@@ -5715,6 +5886,7 @@ public class AngularaParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new IdentifierContentContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(762);
@@ -5843,9 +6015,9 @@ public class AngularaParser extends Parser {
 		"\u00ce\t\u0007\u0001\u0007\u0003\u0007\u00d1\b\u0007\u0001\b\u0001\b\u0001"+
 		"\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001"+
 		"\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0003\b\u00e5\b\b\u0001"+
-		"\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\n\u0001"+
-		"\n\u0003\n\u00f1\b\n\u0001\n\u0001\n\u0001\n\u0001\n\u0005\n\u00f7\b\n"+
-		"\n\n\f\n\u00fa\t\n\u0003\n\u00fc\b\n\u0001\n\u0001\n\u0001\n\u0001\n\u0001"+
+		"\t\u0001\t\u0001\t\u0001\t\u0003\t\u00eb\b\t\u0001\t\u0001\t\u0001\t\u0001"+
+		"\t\u0005\t\u00f1\b\t\n\t\f\t\u00f4\t\t\u0003\t\u00f6\b\t\u0001\t\u0001"+
+		"\t\u0001\t\u0001\t\u0001\n\u0001\n\u0001\n\u0001\n\u0001\n\u0001\n\u0001"+
 		"\u000b\u0001\u000b\u0001\u000b\u0003\u000b\u0105\b\u000b\u0001\f\u0001"+
 		"\f\u0001\f\u0001\f\u0003\f\u010b\b\f\u0001\r\u0005\r\u010e\b\r\n\r\f\r"+
 		"\u0111\t\r\u0001\u000e\u0001\u000e\u0001\u000e\u0003\u000e\u0116\b\u000e"+
@@ -5918,7 +6090,7 @@ public class AngularaParser extends Parser {
 		"\u0000\u0000\u0000\b\u00af\u0001\u0000\u0000\u0000\n\u00ba\u0001\u0000"+
 		"\u0000\u0000\f\u00c1\u0001\u0000\u0000\u0000\u000e\u00c7\u0001\u0000\u0000"+
 		"\u0000\u0010\u00e4\u0001\u0000\u0000\u0000\u0012\u00e6\u0001\u0000\u0000"+
-		"\u0000\u0014\u00ec\u0001\u0000\u0000\u0000\u0016\u0101\u0001\u0000\u0000"+
+		"\u0000\u0014\u00fb\u0001\u0000\u0000\u0000\u0016\u0101\u0001\u0000\u0000"+
 		"\u0000\u0018\u0106\u0001\u0000\u0000\u0000\u001a\u010f\u0001\u0000\u0000"+
 		"\u0000\u001c\u0115\u0001\u0000\u0000\u0000\u001e\u0117\u0001\u0000\u0000"+
 		"\u0000 \u0120\u0001\u0000\u0000\u0000\"\u012e\u0001\u0000\u0000\u0000"+
@@ -5950,10 +6122,10 @@ public class AngularaParser extends Parser {
 		"\u0000\u008e\u008c\u0001\u0000\u0000\u0000\u008f\u0091\u0005\u0000\u0000"+
 		"\u0001\u0090\u0088\u0001\u0000\u0000\u0000\u0090\u008c\u0001\u0000\u0000"+
 		"\u0000\u0091\u0001\u0001\u0000\u0000\u0000\u0092\u00a0\u0003\u0004\u0002"+
-		"\u0000\u0093\u00a0\u0003\n\u0005\u0000\u0094\u0095\u0003\u0012\t\u0000"+
+		"\u0000\u0093\u00a0\u0003\n\u0005\u0000\u0094\u0095\u0003\u0014\n\u0000"+
 		"\u0095\u0096\u0003\u0016\u000b\u0000\u0096\u00a0\u0001\u0000\u0000\u0000"+
 		"\u0097\u00a0\u0003\u0016\u000b\u0000\u0098\u00a0\u0003\u0018\f\u0000\u0099"+
-		"\u00a0\u0003\u0014\n\u0000\u009a\u00a0\u0003@ \u0000\u009b\u00a0\u0003"+
+		"\u00a0\u0003\u0012\t\u0000\u009a\u00a0\u0003@ \u0000\u009b\u00a0\u0003"+
 		"H$\u0000\u009c\u00a0\u0003 \u0010\u0000\u009d\u00a0\u0003F#\u0000\u009e"+
 		"\u00a0\u0003*\u0015\u0000\u009f\u0092\u0001\u0000\u0000\u0000\u009f\u0093"+
 		"\u0001\u0000\u0000\u0000\u009f\u0094\u0001\u0000\u0000\u0000\u009f\u0097"+
@@ -5977,7 +6149,7 @@ public class AngularaParser extends Parser {
 		"\u0000\u00b8\u00b9\u0001\u0000\u0000\u0000\u00b9\t\u0001\u0000\u0000\u0000"+
 		"\u00ba\u00bb\u0005\u0012\u0000\u0000\u00bb\u00bc\u00059\u0000\u0000\u00bc"+
 		"\u00bd\u0003\f\u0006\u0000\u00bd\u00bf\u0005:\u0000\u0000\u00be\u00c0"+
-		"\u0003\u0014\n\u0000\u00bf\u00be\u0001\u0000\u0000\u0000\u00bf\u00c0\u0001"+
+		"\u0003\u0012\t\u0000\u00bf\u00be\u0001\u0000\u0000\u0000\u00bf\u00c0\u0001"+
 		"\u0000\u0000\u0000\u00c0\u000b\u0001\u0000\u0000\u0000\u00c1\u00c3\u0005"+
 		"7\u0000\u0000\u00c2\u00c4\u0003\u000e\u0007\u0000\u00c3\u00c2\u0001\u0000"+
 		"\u0000\u0000\u00c3\u00c4\u0001\u0000\u0000\u0000\u00c4\u00c5\u0001\u0000"+
@@ -5999,26 +6171,26 @@ public class AngularaParser extends Parser {
 		"v;\u0000\u00e4\u00d2\u0001\u0000\u0000\u0000\u00e4\u00d5\u0001\u0000\u0000"+
 		"\u0000\u00e4\u00d8\u0001\u0000\u0000\u0000\u00e4\u00db\u0001\u0000\u0000"+
 		"\u0000\u00e4\u00de\u0001\u0000\u0000\u0000\u00e4\u00e1\u0001\u0000\u0000"+
-		"\u0000\u00e5\u0011\u0001\u0000\u0000\u0000\u00e6\u00e7\u0005\b\u0000\u0000"+
-		"\u00e7\u00e8\u0005K\u0000\u0000\u00e8\u00e9\u00059\u0000\u0000\u00e9\u00ea"+
-		"\u0003z=\u0000\u00ea\u00eb\u0005:\u0000\u0000\u00eb\u0013\u0001\u0000"+
-		"\u0000\u0000\u00ec\u00ed\u0005\u0006\u0000\u0000\u00ed\u00f0\u0005K\u0000"+
-		"\u0000\u00ee\u00ef\u0005\n\u0000\u0000\u00ef\u00f1\u0005K\u0000\u0000"+
-		"\u00f0\u00ee\u0001\u0000\u0000\u0000\u00f0\u00f1\u0001\u0000\u0000\u0000"+
-		"\u00f1\u00fb\u0001\u0000\u0000\u0000\u00f2\u00f3\u0005B\u0000\u0000\u00f3"+
-		"\u00f8\u0005K\u0000\u0000\u00f4\u00f5\u00054\u0000\u0000\u00f5\u00f7\u0005"+
-		"K\u0000\u0000\u00f6\u00f4\u0001\u0000\u0000\u0000\u00f7\u00fa\u0001\u0000"+
-		"\u0000\u0000\u00f8\u00f6\u0001\u0000\u0000\u0000\u00f8\u00f9\u0001\u0000"+
-		"\u0000\u0000\u00f9\u00fc\u0001\u0000\u0000\u0000\u00fa\u00f8\u0001\u0000"+
-		"\u0000\u0000\u00fb\u00f2\u0001\u0000\u0000\u0000\u00fb\u00fc\u0001\u0000"+
-		"\u0000\u0000\u00fc\u00fd\u0001\u0000\u0000\u0000\u00fd\u00fe\u00057\u0000"+
-		"\u0000\u00fe\u00ff\u0003\u001a\r\u0000\u00ff\u0100\u00058\u0000\u0000"+
-		"\u0100\u0015\u0001\u0000\u0000\u0000\u0101\u0104\u0005\u0004\u0000\u0000"+
-		"\u0102\u0105\u0003\u0014\n\u0000\u0103\u0105\u0003@ \u0000\u0104\u0102"+
-		"\u0001\u0000\u0000\u0000\u0104\u0103\u0001\u0000\u0000\u0000\u0105\u0017"+
-		"\u0001\u0000\u0000\u0000\u0106\u0107\u0005\u0004\u0000\u0000\u0107\u0108"+
-		"\u0005\u0005\u0000\u0000\u0108\u010a\u0003J%\u0000\u0109\u010b\u00053"+
-		"\u0000\u0000\u010a\u0109\u0001\u0000\u0000\u0000\u010a\u010b\u0001\u0000"+
+		"\u0000\u00e5\u0011\u0001\u0000\u0000\u0000\u00e6\u00e7\u0005\u0006\u0000"+
+		"\u0000\u00e7\u00ea\u0005K\u0000\u0000\u00e8\u00e9\u0005\n\u0000\u0000"+
+		"\u00e9\u00eb\u0005K\u0000\u0000\u00ea\u00e8\u0001\u0000\u0000\u0000\u00ea"+
+		"\u00eb\u0001\u0000\u0000\u0000\u00eb\u00f5\u0001\u0000\u0000\u0000\u00ec"+
+		"\u00ed\u0005B\u0000\u0000\u00ed\u00f2\u0005K\u0000\u0000\u00ee\u00ef\u0005"+
+		"4\u0000\u0000\u00ef\u00f1\u0005K\u0000\u0000\u00f0\u00ee\u0001\u0000\u0000"+
+		"\u0000\u00f1\u00f4\u0001\u0000\u0000\u0000\u00f2\u00f0\u0001\u0000\u0000"+
+		"\u0000\u00f2\u00f3\u0001\u0000\u0000\u0000\u00f3\u00f6\u0001\u0000\u0000"+
+		"\u0000\u00f4\u00f2\u0001\u0000\u0000\u0000\u00f5\u00ec\u0001\u0000\u0000"+
+		"\u0000\u00f5\u00f6\u0001\u0000\u0000\u0000\u00f6\u00f7\u0001\u0000\u0000"+
+		"\u0000\u00f7\u00f8\u00057\u0000\u0000\u00f8\u00f9\u0003\u001a\r\u0000"+
+		"\u00f9\u00fa\u00058\u0000\u0000\u00fa\u0013\u0001\u0000\u0000\u0000\u00fb"+
+		"\u00fc\u0005\b\u0000\u0000\u00fc\u00fd\u0005K\u0000\u0000\u00fd\u00fe"+
+		"\u00059\u0000\u0000\u00fe\u00ff\u0003z=\u0000\u00ff\u0100\u0005:\u0000"+
+		"\u0000\u0100\u0015\u0001\u0000\u0000\u0000\u0101\u0104\u0005\u0004\u0000"+
+		"\u0000\u0102\u0105\u0003\u0012\t\u0000\u0103\u0105\u0003@ \u0000\u0104"+
+		"\u0102\u0001\u0000\u0000\u0000\u0104\u0103\u0001\u0000\u0000\u0000\u0105"+
+		"\u0017\u0001\u0000\u0000\u0000\u0106\u0107\u0005\u0004\u0000\u0000\u0107"+
+		"\u0108\u0005\u0005\u0000\u0000\u0108\u010a\u0003J%\u0000\u0109\u010b\u0005"+
+		"3\u0000\u0000\u010a\u0109\u0001\u0000\u0000\u0000\u010a\u010b\u0001\u0000"+
 		"\u0000\u0000\u010b\u0019\u0001\u0000\u0000\u0000\u010c\u010e\u0003\u001c"+
 		"\u000e\u0000\u010d\u010c\u0001\u0000\u0000\u0000\u010e\u0111\u0001\u0000"+
 		"\u0000\u0000\u010f\u010d\u0001\u0000\u0000\u0000\u010f\u0110\u0001\u0000"+
@@ -6300,7 +6472,7 @@ public class AngularaParser extends Parser {
 		"\u0005K\u0000\u0000\u02ff\u0300\u0005%\u0000\u0000\u0300\u0302\u0007\t"+
 		"\u0000\u0000\u0301\u02fd\u0001\u0000\u0000\u0000\u0301\u02fe\u0001\u0000"+
 		"\u0000\u0000\u0302\u0087\u0001\u0000\u0000\u0000[\u008c\u0090\u009f\u00a6"+
-		"\u00ad\u00b4\u00b8\u00bf\u00c3\u00cc\u00d0\u00e4\u00f0\u00f8\u00fb\u0104"+
+		"\u00ad\u00b4\u00b8\u00bf\u00c3\u00cc\u00d0\u00e4\u00ea\u00f2\u00f5\u0104"+
 		"\u010a\u010f\u0115\u011a\u0120\u0125\u012a\u0133\u0137\u0140\u0145\u0149"+
 		"\u014c\u014f\u015a\u0161\u0168\u016f\u0178\u017b\u0185\u0189\u018b\u0192"+
 		"\u0198\u01a3\u01aa\u01b4\u01ba\u01bf\u01c6\u01c8\u01d3\u01dd\u01e1\u01e8"+

@@ -13,6 +13,30 @@ class IfStmt extends Statement {
         this.elseBlock = elseBlock;
     }
 
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public List<Statement> getThenBlock() {
+        return thenBlock;
+    }
+
+    public void setThenBlock(List<Statement> thenBlock) {
+        this.thenBlock = thenBlock;
+    }
+
+    public List<Statement> getElseBlock() {
+        return elseBlock;
+    }
+
+    public void setElseBlock(List<Statement> elseBlock) {
+        this.elseBlock = elseBlock;
+    }
+
     @Override
     public String toString() {
         return "IfStmt(condition=" + condition + ", then=" + thenBlock + ", else=" + elseBlock + ")";

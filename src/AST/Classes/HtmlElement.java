@@ -21,8 +21,44 @@ public class HtmlElement extends Node {
         this.closingTagName = closingTagName;
     }
 
+    public HtmlTagName getTagName() {
+        return tagName;
+    }
+
+    public void setTagName(HtmlTagName tagName) {
+        this.tagName = tagName;
+    }
+
+    public List<Attribute> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(List<Attribute> attributes) {
+        this.attributes = attributes;
+    }
+
+    public List<HtmlContent> getContents() {
+        return contents;
+    }
+
+    public void setContents(List<HtmlContent> contents) {
+        this.contents = contents;
+    }
+
+    public HtmlTagName getClosingTagName() {
+        return closingTagName;
+    }
+
+    public void setClosingTagName(HtmlTagName closingTagName) {
+        this.closingTagName = closingTagName;
+    }
+
     @Override
     public String toString() {
-        return "HtmlElement(tag=" + tagName + ", attrs=" + attributes + ", contents=" + contents + ")";
+        return "HtmlElement(tag=" + tagName
+                + ", attrs=" + attributes
+                + ", contents=" + contents
+                + (closingTagName != null ? ", closingTag=" + closingTagName : "")
+                +")";
     }
 }

@@ -130,23 +130,59 @@ public interface AngularaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitComponentMetadataPropertyList(AngularaParser.ComponentMetadataPropertyListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AngularaParser#componentMetadataProperty}.
+	 * Visit a parse tree produced by the {@code selector}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitComponentMetadataProperty(AngularaParser.ComponentMetadataPropertyContext ctx);
+	T visitSelector(AngularaParser.SelectorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AngularaParser#decorator}.
+	 * Visit a parse tree produced by the {@code standalone}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDecorator(AngularaParser.DecoratorContext ctx);
+	T visitStandalone(AngularaParser.StandaloneContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code imports}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImports(AngularaParser.ImportsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code template}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTemplate(AngularaParser.TemplateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code styleUrls}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStyleUrls(AngularaParser.StyleUrlsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code customProperty}
+	 * labeled alternative in {@link AngularaParser#componentMetadataProperty}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCustomProperty(AngularaParser.CustomPropertyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AngularaParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitClassDeclaration(AngularaParser.ClassDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AngularaParser#decorator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDecorator(AngularaParser.DecoratorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AngularaParser#exportStatement}.
 	 * @param ctx the parse tree
@@ -478,11 +514,33 @@ public interface AngularaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitHtmlTagName(AngularaParser.HtmlTagNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AngularaParser#htmlContent}.
+	 * Visit a parse tree produced by the {@code htmlElementContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitHtmlContent(AngularaParser.HtmlContentContext ctx);
+	T visitHtmlElementContent(AngularaParser.HtmlElementContentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expressionContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpressionContent(AngularaParser.ExpressionContentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stringContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStringContent(AngularaParser.StringContentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code identifierContent}
+	 * labeled alternative in {@link AngularaParser#htmlContent}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdentifierContent(AngularaParser.IdentifierContentContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AngularaParser#attribute}.
 	 * @param ctx the parse tree

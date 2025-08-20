@@ -16,6 +16,14 @@ public class ObjectLiteral extends Node{
         this.properties = properties;
     }
 
+    public List<ObjectProperty> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<ObjectProperty> properties) {
+        this.properties = properties;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

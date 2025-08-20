@@ -7,9 +7,17 @@ exportDefault
 
  */
 class ExportDefaultStmt extends Statement {
-    private String defaultValue;
+    private Expression defaultValue;
 
-    public ExportDefaultStmt(String defaultValue) {
+    public ExportDefaultStmt(Expression defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public Expression getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(Expression defaultValue) {
         this.defaultValue = defaultValue;
     }
 
@@ -17,4 +25,5 @@ class ExportDefaultStmt extends Statement {
     public String toString() {
         return "ExportDefaultStmt(" + defaultValue + ")";
     }
+
 }

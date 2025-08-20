@@ -1,18 +1,9 @@
 package AST.Classes;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ImportItems extends Node{
-    /*
-    importItems
-    : IDENTIFIER (COMMA IDENTIFIER)* COMMA?
-    ;
-
-     */
+public class IdentifierContent extends HtmlContent {
     private String name;
 
-    public ImportItems(String name) {
+    public IdentifierContent(String name) {
         this.name = name;
     }
 
@@ -26,6 +17,6 @@ public class ImportItems extends Node{
 
     @Override
     public String toString() {
-        return name;
+        return "IdentifierContent(" + name + ")";
     }
 }

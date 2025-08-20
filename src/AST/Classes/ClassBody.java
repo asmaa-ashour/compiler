@@ -13,6 +13,14 @@ public class ClassBody {
         this.elements = elements;
     }
 
+    public List<ClassElement> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<ClassElement> elements) {
+        this.elements = elements;
+    }
+
     @Override
     public String toString() {
         return elements.toString();

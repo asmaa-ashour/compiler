@@ -8,16 +8,7 @@ htmlContent
     | IDENTIFIER
     ;
  */
-public class HtmlContent extends Node {
-    private Node content; // يمكن أن يكون HtmlElement، Expression، STRING أو IDENTIFIER
+public abstract  class HtmlContent extends Node {
 
-    public HtmlContent(Node content) {
-        this.content = content;
-    }
-
-    @Override
-    public String toString() {
-        return content.toString();
-    }
 }
 
